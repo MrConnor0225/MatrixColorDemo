@@ -42,7 +42,7 @@ class ColorCollectionViewCell: UICollectionViewCell {
     func setAnimate(sender: UIButton) {
         guard let originalColor = sender.backgroundColor else { return }
         UIView.animate(withDuration: 0.2, animations: {
-            sender.backgroundColor = sender.backgroundColor?.withAlphaComponent(0.5)
+            sender.backgroundColor = sender.backgroundColor?.withAlphaComponent(0.3)
         }) { _ in
             UIView.animate(withDuration: 0.2, animations: {
                 sender.backgroundColor = originalColor
@@ -57,7 +57,6 @@ class ColorCollectionViewCell: UICollectionViewCell {
     // MARK: - Actions
     @objc
     func handleButtonClick(sender: UIButton) {
-        setAnimate(sender: sender)
         guard let buttonColor = colorButton.backgroundColor else { return }
         self.delegate?.handleButtonBackgroundColor(withColor: buttonColor)
     }
